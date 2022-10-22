@@ -5,7 +5,7 @@ import {NextApiRequest, NextApiResponse} from 'next'
 
 const prisma = Prisma.getPrisma();
 export default async function handler(req:NextApiRequest, res:NextApiResponse) {
-    if (req.method != 'GET') res.status(405).json({message: 'invalid method'});
+    if (req.method != 'GET') res.status(405).json({error: 'invalid method'});
     try {
         const {token} = req.query;
         verifyVerificationToken(decodeURIComponent(token as string), async (decoded:JwtPayload)=> {
@@ -14,6 +14,6 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
             res.redirect('/');
         })
     } catch (error) {
-        res.status(500).json({message: 'Something went wrong.'})
+        res.status(500).json({error: 'Something went wrong.'})
     }
 }

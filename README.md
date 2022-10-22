@@ -35,8 +35,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 To DO:
-1. TimeUnsafeEqual at sign in.
-2. verification link token data.
-3. reset token to database.
-4. After using reset token delete from database
+1. TimeUnsafeEqual at sign in. [x]
+2. verification link token data. [x]
+3. reset token to database. [x]
+4. After using reset token delete from database. [x]
+5. Check if email exist while sign up. 
 
+For production use:
+1. Change reset password token error UI
+2. Change config/index.ts
+3. 

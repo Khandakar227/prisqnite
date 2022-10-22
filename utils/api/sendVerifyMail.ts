@@ -12,6 +12,7 @@ export default async function sendVerifyMail(email: string, username: string, ve
         html: verifyEmailHTML(username, config.logo_url, verification_link)
     }
     const res = await transporter.sendMail(mailOptions);
+    console.log(res)
     if (res.rejected.length) Promise.reject(new Error("Failed to send message"));
     
 }

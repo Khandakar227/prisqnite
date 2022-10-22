@@ -23,6 +23,7 @@ model ResetToken {
   id    Int     @id @default(autoincrement())
   email String  @unique
   used  Boolean
+  expiresIn String?
   token String?
   user  User    @relation(fields: [email], references: [email])
 }

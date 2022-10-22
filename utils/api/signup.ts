@@ -12,7 +12,7 @@ export default async function signUp(data: any, config?: SignUpConfig) {
       body: JSON.stringify(data),
   });
 
-  if (!res.ok) throw new Error(res.statusText);
+  if (!res.ok) throw new Error((await res.json()).error);
   if(config?.redirect) window.location.replace(config.redirect);
   const result = await res.json()
   console.log(result)
